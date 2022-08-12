@@ -1,0 +1,16 @@
+promotional_rules:
+  - title: 'Christmas discount promotion'
+    description: 'If you spend over £60, then you get 10% off of your purchase.'
+    applicability: 'total_price'
+    operator: '>='
+    applicable_value: 60
+    value: 10.0
+    value_type: 'percentage'
+  - title: 'Lavender hearts discount promotion'
+    description: 'If you buy 2 or more lavender hearts then the price drops to £8.50.'
+    applicability: 'product_count'
+    operator: '>='
+    applicable_value: 2
+    applicable_product_code: '001'
+    value: 0.75
+    value_type: 'fixed'
