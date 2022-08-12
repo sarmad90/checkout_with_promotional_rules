@@ -4,17 +4,12 @@ require_relative '../app/product'
 
 require 'yaml'
 
-describe Checkout do
-  # subject(:checkout) { described_class.new(promotional_rules) }
-  
+describe Checkout do  
   let(:promotional_rules) { YAML.load_file("#{Dir.pwd}/data/promotional_rules.yml")["promotional_rules"] }
   let(:products) { YAML.load_file("#{Dir.pwd}/data/products.yml")["products"] }
   let(:product_1) { Product.new(products.find { |product| product["product_code"] == '001' }) }
   let(:product_2) { Product.new(products.find { |product| product["product_code"] == '002' }) }
   let(:product_3) { Product.new(products.find { |product| product["product_code"] == '003' }) }
-  let(:item_1) { Item.new(Product.new(product_1)) }
-  let(:item_2) { Item.new(Product.new(product_2)) }
-  let(:item_3) { Item.new(Product.new(product_3)) }
 
   describe "#total" do
     it "returns the correct total price after applying the promotional rules for combination A" do
@@ -42,7 +37,7 @@ describe Checkout do
       checkout.scan(product_1)
       checkout.scan(product_3)
 
-      # I changed this expectation from 73.6 to 73.605 to offset the error.
+      # I changed this expectation from 73.6 to 73.605 to offset the difference/error.
       expect(checkout.total).to eql(73.605)
     end
   end

@@ -1,10 +1,4 @@
-# require 'forwardable'
-
 class Item
-  # extend Forwardable
-
-  # def_delegators :@product, :product_code, :name, :price
-
   attr_accessor :price
   attr_reader :product_code, :name
 
