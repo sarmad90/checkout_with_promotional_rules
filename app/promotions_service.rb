@@ -42,7 +42,7 @@ class PromotionsService
     if promotional_rule['value_type'] == 'percentage'
       applicable_discounts << original_total_price * (promotional_rule['value'].to_f / 100.0)
     elsif promotional_rule['value_type'] == 'fixed'
-      # implement
+      # TODO: implement
     else
       raise StandardError, 'Invalid value type'
     end
@@ -54,7 +54,7 @@ class PromotionsService
         discounted_price = item.price - promotional_rule['value']
         item.price = discounted_price
       elsif promotional_rule['value_type'] == 'percentage'
-        # implement
+        # TODO: implement
       else
         raise StandardError, 'Invalid value type'
       end
